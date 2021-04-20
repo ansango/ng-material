@@ -22,7 +22,6 @@ import { AppState } from 'src/app/store/app.state';
 export class AddActivityComponent implements OnInit {
   userId?: number;
   activityForm!: FormGroup;
-  selectedCat: string = '';
   categories = Object.values(ActivityCategory);
   subCulture = Object.values(ActivitySubcategoryCulture);
   subWine = Object.values(ActivitySubcategoryWine);
@@ -48,10 +47,6 @@ export class AddActivityComponent implements OnInit {
     });
 
     this.store.select(getUserId).subscribe((id) => (this.userId = id));
-  }
-
-  selectedCategory(event: any): string {
-    return (this.selectedCat = event.target.value.match('[a-zA-Z]+')[0]);
   }
 
   onAdd() {
