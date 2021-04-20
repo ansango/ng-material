@@ -15,7 +15,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { FavoritesEffects } from './favorites/state/favorites.effects';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent],
   imports: [
@@ -30,6 +30,7 @@ import { FavoritesEffects } from './favorites/state/favorites.effects';
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

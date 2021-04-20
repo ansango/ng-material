@@ -12,6 +12,10 @@ import { PROFILE_STATE_NAME } from './state/profile.selectors';
 import { profileReducer } from './state/profile.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProfileEffects } from './state/profile.effects';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
   {
@@ -43,6 +47,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(PROFILE_STATE_NAME, profileReducer),
     EffectsModule.forFeature([ProfileEffects]),
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
   ],
 })
 export class ProfileModule {}
