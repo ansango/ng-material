@@ -28,6 +28,7 @@ export class AddActivityComponent implements OnInit {
   subWine = Object.values(ActivitySubcategoryWine);
   subBeach = Object.values(ActivitySubcategoryBeach);
   languages = Object.values(ActivityLanguage);
+  ActivityCategory = ActivityCategory;
 
   constructor(private store: Store<AppState>, private router: Router) {}
 

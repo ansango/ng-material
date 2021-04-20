@@ -10,6 +10,12 @@ import { ActivitiesEffects } from '../activities/state/activities.effects';
 import { EditActivityComponent } from './edit-activity/edit-activity.component';
 import { AddActivityComponent } from './add-activity/add-activity.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 const routes: Routes = [
   {
@@ -40,6 +46,13 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(ACTIVITY_STATE_NAME, activitiesReducer),
     EffectsModule.forFeature([ActivitiesEffects]),
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
 })
 export class AdminModule {}
