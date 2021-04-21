@@ -15,11 +15,16 @@ import { AppState } from 'src/app/store/app.state';
 export class ActivitiesListComponent implements OnInit {
   userId?: number = 0;
   activities$!: Observable<Activity[]>;
+  activities!: Activity[];
+  displayedColumns: string[] = ['name', 'category', 'price', 'date', 'actions'];
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.activities$ = this.store.select(getMyActivities);
     this.store.select(getUserId).subscribe((id) => (this.userId = id));
     this.store.dispatch(loadMyActivities({ idUser: this.userId }));
+    this.activities$.subscribe((activities) => {
+      this.activities = activities;
+    });
   }
 }

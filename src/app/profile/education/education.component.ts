@@ -16,15 +16,25 @@ import { getEducation } from '../state/profile.selectors';
 export class EducationComponent implements OnInit {
   profileId?: number = 0;
   education$!: Observable<Education[]>;
-  constructor(
-    private authService: AuthService,
-    private store: Store<AppState>
-  ) {}
+  education!: Education[];
+  displayedColumns: string[] = [
+    'type',
+    'level',
+    'name',
+    'university',
+    'finish date',
+    'actions',
+  ];
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.education$ = this.store.select(getEducation);
     this.store.select(getUserId).subscribe((id) => (this.profileId = id));
     this.store.dispatch(loadEducation({ idUser: this.profileId }));
+    this.education$.subscribe((education) => {
+      this.education = education;
+      console.log(this.education);
+    });
   }
 
   onDelete(id?: number) {

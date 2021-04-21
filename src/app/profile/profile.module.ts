@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -55,6 +56,7 @@ const routes: Routes = [
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
 })

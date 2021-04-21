@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { FavoritesEffects } from './favorites/state/favorites.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent],
   imports: [
@@ -31,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       logOnly: environment.production,
     }),
     BrowserAnimationsModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

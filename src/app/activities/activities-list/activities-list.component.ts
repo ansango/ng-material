@@ -17,6 +17,8 @@ import { getActivities } from '../state/activities.selectors';
 export class ActivitiesListComponent implements OnInit {
   userId?: number = 0;
   activities$!: Observable<Activity[]>;
+  activities!: Activity[];
+  displayedColumns: string[] = ['name', 'category', 'price', 'date', 'actions'];
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
@@ -26,5 +28,8 @@ export class ActivitiesListComponent implements OnInit {
     this.store.select(getFavorites);
     this.store.dispatch(loadFavorites());
     this.store.dispatch(loadMyActivities({ idUser: this.userId }));
+    this.activities$.subscribe((activities) => {
+      this.activities = activities;
+    });
   }
 }

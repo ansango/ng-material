@@ -8,6 +8,7 @@ import { activitiesReducer } from './state/activities.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ActivitiesEffects } from './state/activities.effects';
 import { ActivityComponent } from './activity/activity.component';
+import { MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(ACTIVITY_STATE_NAME, activitiesReducer),
     EffectsModule.forFeature([ActivitiesEffects]),
+    MatTableModule,
   ],
 })
 export class ActivitiesModule {}

@@ -13,11 +13,16 @@ import { getFavorites } from '../state/favorites.selectors';
 })
 export class ActivitiesListComponent implements OnInit {
   favorites$!: Observable<Activity[]>;
+  favorites!: Activity[];
+  displayedColumns: string[] = ['name', 'category', 'price', 'date', 'actions'];
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.favorites$ = this.store.select(getFavorites) ;
+    this.favorites$ = this.store.select(getFavorites);
     this.store.dispatch(loadFavorites());
+    this.favorites$.subscribe((favorites) => {
+      this.favorites = favorites;
+    });
   }
 }
