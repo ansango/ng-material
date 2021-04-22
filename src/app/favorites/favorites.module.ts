@@ -4,6 +4,8 @@ import { ActivitiesListComponent } from './activities-list/activities-list.compo
 import { ActivityComponent } from './activity/activity.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [
   {
@@ -19,6 +21,12 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [ActivitiesListComponent, ActivityComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), MatTableModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatTableModule,
+    MatButtonModule,
+    MatCardModule,
+  ],
 })
 export class FavoritesModule {}
