@@ -33,7 +33,6 @@ export class EducationComponent implements OnInit {
     this.store.dispatch(loadEducation({ idUser: this.profileId }));
     this.education$.subscribe((education) => {
       this.education = education;
-      console.log(this.education);
     });
   }
 

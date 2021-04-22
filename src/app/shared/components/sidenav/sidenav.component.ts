@@ -9,12 +9,12 @@ import {
 import { AppState } from 'src/app/store/app.state';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.css'],
 })
-export class HeaderComponent implements OnInit {
-  @Output() public sidenavToggle = new EventEmitter();
+export class SidenavComponent implements OnInit {
+  @Output() sidenavClose = new EventEmitter();
   isAuthenticated$?: Observable<boolean>;
   userType$?: Observable<any>;
   constructor(private store: Store<AppState>) {}
@@ -24,11 +24,13 @@ export class HeaderComponent implements OnInit {
     this.userType$ = this.store.select(getUserType);
   }
 
-  onToggleSidenav() {
-    this.sidenavToggle.emit();
+  onSidenavClose() {
+    this.sidenavClose.emit();
   }
-  onLogout(event: Event) {
+
+  onLogout = (event: Event) => {
     event.preventDefault();
     this.store.dispatch(autoLogout());
-  }
+    this.onSidenavClose();
+  };
 }
