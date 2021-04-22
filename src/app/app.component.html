@@ -4,6 +4,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+
     <main>
       <div *ngIf="errorMessage | async as error">
         {{ error }}
