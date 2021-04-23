@@ -1,7 +1,9 @@
 <h3>Education</h3>
 <hr />
 
-<button [routerLink]="['edu/add']">Add Education</button>
+<button mat-raised-button color="primary" [routerLink]="['edu/add']">
+  Add Education
+</button>
 
 <div *ngIf="(education$ | async)!.length === 0">Loading education...</div>
 <div *ngIf="(education$ | async)!.length > 0">
@@ -31,8 +33,20 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let education">
-        <button [routerLink]="['edu/edit', education.id]">Update</button>
-        <button (click)="onDelete(education.id)">Delete</button>
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="['edu/edit', education.id]"
+        >
+          Update
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onDelete(education.id)"
+        >
+          Delete
+        </button>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

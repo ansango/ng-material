@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes: Routes = [
   {
@@ -50,6 +51,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(PROFILE_STATE_NAME, profileReducer),
     EffectsModule.forFeature([ProfileEffects]),
+    FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

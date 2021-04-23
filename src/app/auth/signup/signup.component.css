@@ -1,22 +1,16 @@
 .container-view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  padding: 10px;
   min-height: calc(100vh - 7rem);
+  margin: 0 auto;
 }
+
 mat-card {
   width: 100%;
   max-width: 320px;
-  margin-top: 100px;
 }
 
-mat-card form {
-  display: flex;
-  flex-direction: column;
-}
-
-button {
+form {
   width: 100%;
-  max-width: 150px;
-  margin: 0 auto;
+  max-width: 320px;
 }
