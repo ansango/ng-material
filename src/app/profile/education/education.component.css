@@ -1,3 +1,21 @@
+.container-view {
+  width: 100%;
+  margin: 50px auto;
+}
+
+.wrapper {
+  padding: 10px;
+}
+
+mat-card {
+  width: 100%;
+}
+
 table {
   width: 100%;
+  margin: 20px 0;
+}
+
+.actions {
+  margin-right: 10px;
 }
