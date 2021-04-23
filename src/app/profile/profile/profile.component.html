@@ -1,63 +1,106 @@
-<div class="content">
-  <div *ngIf="profile$ | async as profile" fxLayout="row">
-    <div fxFlex="50%" fxLayout="column">
-      <h3>Profile</h3>
-      <mat-form-field appearance="fill">
-        <mat-label>First Name</mat-label>
-        <input
-          matInput
-          type="text"
-          [value]="profile.firstName"
-          [readonly]="true"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Last Name</mat-label>
-        <input
-          matInput
-          type="text"
-          [value]="profile.lastName"
-          [readonly]="true"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Birthday</mat-label>
-        <input
-          matInput
-          type="text"
-          [value]="profile.birthday | date: 'dd/MM/yyyy'"
-          [readonly]="true"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Phone</mat-label>
-        <input matInput type="text" [value]="profile.phone" [readonly]="true" />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Nationality</mat-label>
-        <input
-          matInput
-          type="text"
-          [value]="profile.nationality"
-          [readonly]="true"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>NIF</mat-label>
-        <input matInput type="text" [value]="profile.nif" [readonly]="true" />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>About</mat-label>
-        <textarea
-          matInput
-          cols="38"
-          rows="5"
-          [value]="profile.about"
-          [readonly]="true"
-        ></textarea>
-      </mat-form-field>
-      <div *ngIf="(profileType$ | async) === 'company'">
-        <mat-form-field appearance="fill">
+<div class="container-view">
+  <div *ngIf="profile$ | async as profile" class="wrapper">
+    <mat-card fxLayout="column">
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <h1>Profile</h1>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutGap="20px"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            type="text"
+            [value]="profile.firstName"
+            [readonly]="true"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            type="text"
+            [value]="profile.lastName"
+            [readonly]="true"
+          />
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutGap="20px"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Birthday</mat-label>
+          <input
+            matInput
+            type="text"
+            [value]="profile.birthday | date: 'dd/MM/yyyy'"
+            [readonly]="true"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input
+            matInput
+            type="text"
+            [value]="profile.phone"
+            [readonly]="true"
+          />
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutGap="20px"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Nationality</mat-label>
+          <input
+            matInput
+            type="text"
+            [value]="profile.nationality"
+            [readonly]="true"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>NIF</mat-label>
+          <input matInput type="text" [value]="profile.nif" [readonly]="true" />
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutGap="20px"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>About</mat-label>
+          <textarea
+            matInput
+            cols="38"
+            rows="5"
+            [value]="profile.about"
+            [readonly]="true"
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutGap="20px"
+      >
+        <mat-form-field
+          appearance="outline"
+          *ngIf="(profileType$ | async) === 'company'"
+        >
           <mat-label>Company Name</mat-label>
           <input
             matInput
@@ -66,7 +109,24 @@
             [readonly]="true"
           />
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field
+          appearance="outline"
+          *ngIf="(profileType$ | async) === 'company'"
+        >
+          <mat-label>CIF</mat-label>
+          <input matInput type="text" [value]="profile.cif" readonly />
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutGap="20px"
+      >
+        <mat-form-field
+          appearance="outline"
+          *ngIf="(profileType$ | async) === 'company'"
+        >
           <mat-label>Company Description</mat-label>
           <textarea
             matInput
@@ -76,25 +136,20 @@
             readonly
           ></textarea>
         </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>CIF</mat-label>
-          <input matInput type="text" [value]="profile.cif" readonly />
-        </mat-form-field>
       </div>
 
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [routerLink]="['edit', profile.id]"
-      >
-        Update
-      </button>
-    </div>
-    <div fxFlex="50%" fxLayout="column">
-      <router-outlet></router-outlet>
-    </div>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [routerLink]="['edit', profile.id]"
+        >
+          Update
+        </button>
+      </div>
+    </mat-card>
   </div>
-</div>
 
-<app-education></app-education>
+  <app-education></app-education>
+</div>

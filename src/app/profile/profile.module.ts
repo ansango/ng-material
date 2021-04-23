@@ -20,13 +20,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
-    children: [{ path: 'edit/:id', component: EditProfileComponent }],
+    //children: [{ path: 'edit/:id', component: EditProfileComponent }],
   },
+  { path: 'edit/:id', component: EditProfileComponent },
   {
     path: 'edu/add',
     component: AddEducationComponent,
@@ -59,6 +61,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
+    MatCardModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
 })

@@ -1,8 +1,11 @@
 .container-view {
   width: 100%;
-  padding: 10px;
   min-height: calc(100vh - 7rem);
   margin: 0 auto;
+}
+
+.wrapper {
+  padding: 20px;
 }
 
 mat-card {
