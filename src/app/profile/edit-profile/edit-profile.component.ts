@@ -64,6 +64,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         lastName: [
           '',
           [
+            Validators.required,
             Validators.minLength(4),
             Validators.maxLength(55),
             Validators.pattern(/^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$/),
