@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+h1 {
+  padding: 50px 20px;
+}
+
 .container-accordion {
   margin: 20px 0;
 }
