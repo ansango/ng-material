@@ -8,12 +8,34 @@
       <div *ngIf="(activities$ | async)!.length > 0">
         <div *ngFor="let activity of activities$ | async">
           <mat-card class="activity">
-            <div>{{ activity.name }}</div>
-            <div>{{ activity.category }}</div>
-            <div>{{ activity.date | date: "dd/MM/yyyy" }}</div>
-            <div>{{ activity.price | currency }}</div>
-            <div>{{ activity.language | uppercase }}</div>
-            <div>{{ activity.date | date: "dd/MM/yyyy" }}</div>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput disabled [value]="activity.name" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Category</mat-label>
+              <input matInput disabled [value]="activity.category" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Date</mat-label>
+              <input
+                matInput
+                disabled
+                [value]="activity.date | date: 'dd/MM/yyyy'"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Price</mat-label>
+              <input matInput disabled [value]="activity.price | currency" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Language</mat-label>
+              <input
+                matInput
+                disabled
+                [value]="activity.language | uppercase"
+              />
+            </mat-form-field>
             <div>
               <button
                 mat-button
