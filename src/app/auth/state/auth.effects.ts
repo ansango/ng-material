@@ -26,6 +26,7 @@ import {
 } from './auth.actions';
 import { AuthService } from 'src/app/services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
+import { setLoadingSpinner } from 'src/app/store/shared/shared.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -41,6 +42,10 @@ export class AuthEffects {
     return this.actions$.pipe(
       ofType(loginStart),
       exhaustMap((action) => {
+        setTimeout(() => {
+          this.store.dispatch(setLoadingSpinner({ status: false }));
+        }, 5000);
+
         this.messageService.alertDispatch('reset');
         return this.authService.login(action.email, action.password).pipe(
           map((data) => {
@@ -51,6 +56,7 @@ export class AuthEffects {
             return loginSuccess({ user, userType, redirect: true });
           }),
           catchError((errResp) => {
+            this.store.dispatch(setLoadingSpinner({ status: false }));
             this.messageService.alertDispatch('err');
             return of(loginFail());
           })

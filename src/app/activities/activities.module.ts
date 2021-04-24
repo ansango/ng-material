@@ -16,12 +16,11 @@ const routes: Routes = [
   {
     path: '',
     component: ActivitiesListComponent,
-    children: [
-      {
-        path: 'detail/:id',
-        component: ActivityComponent,
-      },
-    ],
+    //children: [],
+  },
+  {
+    path: 'detail/:id',
+    component: ActivityComponent,
   },
 ];
 
