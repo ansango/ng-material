@@ -18,6 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { FlexLayoutModule } from '@angular/flex-layout';
 const routes: Routes = [
   {
     path: '',
@@ -47,6 +48,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(ACTIVITY_STATE_NAME, activitiesReducer),
     EffectsModule.forFeature([ActivitiesEffects]),
+    FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

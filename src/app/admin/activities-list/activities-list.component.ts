@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatAccordion } from '@angular/material/expansion';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import {
@@ -20,7 +22,8 @@ export class ActivitiesListComponent implements OnInit {
   userId?: number = 0;
   activities$!: Observable<Activity[]>;
   panelOpenState = false;
-  constructor(private store: Store<AppState>) {}
+
+  constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit(): void {
     this.activities$ = this.store.select(getActByAdmin);
