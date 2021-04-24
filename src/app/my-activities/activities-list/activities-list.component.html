@@ -1,17 +1,28 @@
 <div class="container-view">
   <div class="wrapper">
     <h1>My Activities</h1>
-    <div *ngIf="(activities$ | async)!.length === 0">
-      Subscribe an activity...
-    </div>
-    <div *ngIf="(activities$ | async)!.length > 0">
+
+    <div>
       <div fxLayout="row" fxLayoutAlign="center center">
         <mat-card
           fxFlex="0 1 calc(100%-10px)"
           fxFlex.gt-md="0 1 calc(60%-10px)"
         >
-          <mat-selection-list #shoes [multiple]="false">
-            <div *ngFor="let activity of activities" class="container-data">
+          <mat-selection-list
+            *ngIf="(activities$ | async)!.length === 0"
+            [multiple]="false"
+          >
+            <div *ngFor="let num of [1, 2, 3, 4, 5, 6]">
+              <mat-list-option>
+                <div mat-line><ngx-skeleton-loader></ngx-skeleton-loader></div>
+              </mat-list-option>
+            </div>
+          </mat-selection-list>
+          <mat-selection-list
+            [multiple]="false"
+            *ngIf="(activities$ | async)!.length > 0"
+          >
+            <div *ngFor="let activity of activities">
               <mat-list-option
                 [value]="activity"
                 [routerLink]="['detail', activity.id]"
