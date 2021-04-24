@@ -25,7 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ModalComponent } from './shared/components/modal/modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,6 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     FooterComponent,
     SidenavComponent,
     SpinnerComponent,
-    ModalComponent,
   ],
   imports: [
     BrowserModule,

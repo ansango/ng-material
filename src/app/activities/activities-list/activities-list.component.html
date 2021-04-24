@@ -6,7 +6,7 @@
       fxLayout="row wrap"
       fxLayoutGap="10px"
       ngClass.gt-xs="ml-10"
-      *ngIf="(activities$ | async)!.length === 0"
+      *ngIf="isLoading$ | async"
     >
       <mat-card
         fxFlex.sm="0 1 calc(50%-10px)"
@@ -26,7 +26,7 @@
       fxLayout="row wrap"
       fxLayoutGap="10px"
       ngClass.gt-xs="ml-10"
-      *ngIf="(activities$ | async)!.length > 0"
+      *ngIf="!(isLoading$ | async)"
     >
       <mat-card
         fxFlex.sm="0 1 calc(50%-10px)"

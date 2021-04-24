@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { getUserId } from 'src/app/auth/state/auth.selectors';
-import { addFavorite } from 'src/app/favorites/state/favorites.actions';
-
-import { Activity, ActivityCategory } from 'src/app/models/activity';
+import { Activity } from 'src/app/models/activity';
 import { AppState } from 'src/app/store/app.state';
+import { getSkeleton } from 'src/app/store/shared/shared.selectors';
 import { loadActivities, loadMyActivities } from '../state/activities.actions';
 import { getActivities } from '../state/activities.selectors';
 
@@ -15,6 +14,7 @@ import { getActivities } from '../state/activities.selectors';
   styleUrls: ['./activities-list.component.css'],
 })
 export class ActivitiesListComponent implements OnInit {
+  isLoading$?: Observable<boolean>;
   userId?: number = 0;
   activities$!: Observable<Activity[]>;
   activities!: Activity[];
@@ -22,6 +22,7 @@ export class ActivitiesListComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+    this.isLoading$ = this.store.select(getSkeleton);
     this.store.select(getUserId).subscribe((id) => (this.userId = id));
     this.activities$ = this.store.select(getActivities);
     this.store.dispatch(loadActivities());

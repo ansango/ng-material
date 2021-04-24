@@ -5,7 +5,7 @@ import { autoLogin } from './auth/state/auth.actions';
 import { AppState } from './store/app.state';
 import {
   getErrorMessage,
-  getLoading,
+  getSpinner,
   getSuccessMessage,
 } from './store/shared/shared.selectors';
 
@@ -21,7 +21,7 @@ export class AppComponent {
   successMessage?: Observable<string>;
   constructor(private store: Store<AppState>) {}
   ngOnInit() {
-    this.showLoading = this.store.select(getLoading);
+    this.showLoading = this.store.select(getSpinner);
     this.errorMessage = this.store.select(getErrorMessage);
     this.successMessage = this.store.select(getSuccessMessage);
     this.store.dispatch(autoLogin());
