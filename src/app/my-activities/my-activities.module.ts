@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatIconModule } from '@angular/material/icon';
 const routes: Routes = [
   {
     path: '',
@@ -38,6 +39,7 @@ const routes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatListModule,
+    MatIconModule,
   ],
 })
 export class MyActivitiesModule {}
