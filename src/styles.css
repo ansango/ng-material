@@ -5,8 +5,6 @@ body {
   box-sizing: border-box;
   height: 100vh;
 }
-mat-dialog-container#modal-component {
-  border: 3px solid #262626;
-  border-radius: 11px;
-  background-color: #1a1a1a;
+.mat-drawer-content {
+  overflow: initial !important;
 }
