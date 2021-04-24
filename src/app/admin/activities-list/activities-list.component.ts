@@ -19,6 +19,7 @@ import { AppState } from 'src/app/store/app.state';
 export class ActivitiesListComponent implements OnInit {
   userId?: number = 0;
   activities$!: Observable<Activity[]>;
+  panelOpenState = false;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {

@@ -17,7 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 const routes: Routes = [
   {
     path: '',
@@ -54,6 +54,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    MatExpansionModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
 })

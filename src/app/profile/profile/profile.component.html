@@ -13,23 +13,13 @@
         fxLayout.xs="column"
         fxLayoutGap="20px"
       >
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>First Name</mat-label>
-          <input
-            matInput
-            type="text"
-            [value]="profile.firstName"
-            [readonly]="true"
-          />
+          <input matInput [value]="profile.firstName" disabled />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Last Name</mat-label>
-          <input
-            matInput
-            type="text"
-            [value]="profile.lastName"
-            [readonly]="true"
-          />
+          <input matInput [value]="profile.lastName" disabled />
         </mat-form-field>
       </div>
       <div
@@ -38,23 +28,17 @@
         fxLayout.xs="column"
         fxLayoutGap="20px"
       >
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Birthday</mat-label>
           <input
             matInput
-            type="text"
             [value]="profile.birthday | date: 'dd/MM/yyyy'"
-            [readonly]="true"
+            disabled
           />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Phone</mat-label>
-          <input
-            matInput
-            type="text"
-            [value]="profile.phone"
-            [readonly]="true"
-          />
+          <input matInput [value]="profile.phone" disabled />
         </mat-form-field>
       </div>
       <div
@@ -63,18 +47,13 @@
         fxLayout.xs="column"
         fxLayoutGap="20px"
       >
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Nationality</mat-label>
-          <input
-            matInput
-            type="text"
-            [value]="profile.nationality"
-            [readonly]="true"
-          />
+          <input matInput [value]="profile.nationality" disabled />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>NIF</mat-label>
-          <input matInput type="text" [value]="profile.nif" [readonly]="true" />
+          <input matInput [value]="profile.nif" disabled />
         </mat-form-field>
       </div>
       <div
@@ -83,14 +62,14 @@
         fxLayout.xs="column"
         fxLayoutGap="20px"
       >
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>About</mat-label>
           <textarea
             matInput
             cols="38"
             rows="5"
             [value]="profile.about"
-            [readonly]="true"
+            disabled
           ></textarea>
         </mat-form-field>
       </div>
@@ -100,24 +79,13 @@
         fxLayout.xs="column"
         fxLayoutGap="20px"
       >
-        <mat-form-field
-          appearance="outline"
-          *ngIf="(profileType$ | async) === 'company'"
-        >
+        <mat-form-field *ngIf="(profileType$ | async) === 'company'">
           <mat-label>Company Name</mat-label>
-          <input
-            matInput
-            type="text"
-            [value]="profile.companyName"
-            [readonly]="true"
-          />
+          <input matInput [value]="profile.companyName" disabled />
         </mat-form-field>
-        <mat-form-field
-          appearance="outline"
-          *ngIf="(profileType$ | async) === 'company'"
-        >
+        <mat-form-field *ngIf="(profileType$ | async) === 'company'">
           <mat-label>CIF</mat-label>
-          <input matInput type="text" [value]="profile.cif" readonly />
+          <input matInput [value]="profile.cif" disabled />
         </mat-form-field>
       </div>
       <div
@@ -126,17 +94,14 @@
         fxLayout.xs="column"
         fxLayoutGap="20px"
       >
-        <mat-form-field
-          appearance="outline"
-          *ngIf="(profileType$ | async) === 'company'"
-        >
+        <mat-form-field *ngIf="(profileType$ | async) === 'company'">
           <mat-label>Company Description</mat-label>
           <textarea
             matInput
             cols="38"
             rows="5"
             [value]="profile.companyDescription"
-            readonly
+            disabled
           ></textarea>
         </mat-form-field>
       </div>

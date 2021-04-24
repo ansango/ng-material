@@ -6,47 +6,73 @@
         Add Activity
       </button>
       <div *ngIf="(activities$ | async)!.length > 0">
-        <div *ngFor="let activity of activities$ | async">
-          <mat-card class="activity">
-            <mat-form-field>
-              <mat-label>Name</mat-label>
-              <input matInput disabled [value]="activity.name" />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Category</mat-label>
-              <input matInput disabled [value]="activity.category" />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Date</mat-label>
-              <input
-                matInput
-                disabled
-                [value]="activity.date | date: 'dd/MM/yyyy'"
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Price</mat-label>
-              <input matInput disabled [value]="activity.price | currency" />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Language</mat-label>
-              <input
-                matInput
-                disabled
-                [value]="activity.language | uppercase"
-              />
-            </mat-form-field>
-            <div>
-              <button
-                mat-button
-                color="primary"
-                [routerLink]="['edit', activity.id]"
-              >
-                Update
-              </button>
-              <button mat-button (click)="onDelete(activity.id)">Delete</button>
-            </div>
-          </mat-card>
+        <div
+          *ngFor="let activity of activities$ | async"
+          class="container-accordion"
+        >
+          <mat-accordion>
+            <mat-expansion-panel
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title> {{ activity.name }}</mat-panel-title>
+                <mat-panel-description>
+                  {{ activity.category }}
+                </mat-panel-description>
+                <mat-panel-description>
+                  {{ activity.price | currency }}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div>
+                <mat-form-field>
+                  <mat-label>Name</mat-label>
+                  <input matInput disabled [value]="activity.name" />
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Category</mat-label>
+                  <input matInput disabled [value]="activity.category" />
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Date</mat-label>
+                  <input
+                    matInput
+                    disabled
+                    [value]="activity.date | date: 'dd/MM/yyyy'"
+                  />
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Price</mat-label>
+                  <input
+                    matInput
+                    disabled
+                    [value]="activity.price | currency"
+                  />
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Language</mat-label>
+                  <input
+                    matInput
+                    disabled
+                    [value]="activity.language | uppercase"
+                  />
+                </mat-form-field>
+                <div>
+                  <button
+                    mat-button
+                    color="primary"
+                    [routerLink]="['edit', activity.id]"
+                  >
+                    Update
+                  </button>
+                  <button mat-button (click)="onDelete(activity.id)">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
           <router-outlet></router-outlet>
         </div>
       </div>
