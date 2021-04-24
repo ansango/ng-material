@@ -14,6 +14,15 @@
           <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
             <input matInput type="text" formControlName="firstName" />
+            <mat-icon
+              matSuffix
+              [ngClass]="{
+                'icon-invalid':
+                  profileForm.get('firstName')?.errors &&
+                  profileForm.get('firstName')?.touched
+              }"
+              >face_outline</mat-icon
+            >
             <mat-error
               *ngIf="
                 profileForm.get('firstName')?.errors &&
@@ -43,13 +52,13 @@
               "
             >
               <div *ngIf="profileForm.get('lastName')?.errors?.required">
-                last name is required
+                Last name is required
               </div>
               <div *ngIf="profileForm.get('lastName')?.errors?.minlength">
-                last name is too short
+                Last name is too short
               </div>
               <div *ngIf="profileForm.get('lastName')?.errors?.maxlength">
-                last name is too long
+                Last name is too long
               </div>
             </mat-error>
           </mat-form-field>
@@ -76,6 +85,7 @@
           <mat-form-field appearance="outline">
             <mat-label>phone</mat-label>
             <input matInput type="number" formControlName="phone" />
+            <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Nationality</mat-label>
@@ -101,7 +111,7 @@
               "
             >
               <div *ngIf="profileForm.get('nationality')?.errors?.required">
-                nationality is required
+                Nationality is required
               </div>
             </mat-error>
           </mat-form-field>
@@ -116,7 +126,7 @@
               "
             >
               <div *ngIf="profileForm.get('nif')?.errors?.required">
-                nif is required
+                NIF is required
               </div>
               <div *ngIf="profileForm.errors?.errorNIF">nif isn't ok</div>
             </mat-error>
@@ -158,13 +168,13 @@
               "
             >
               <div *ngIf="profileForm.get('companyName')?.errors?.required">
-                company name is required
+                Company name is required
               </div>
               <div *ngIf="profileForm.get('companyName')?.errors?.minlength">
-                company name is too short
+                Company name is too short
               </div>
               <div *ngIf="profileForm.get('companyName')?.errors?.maxlength">
-                company name is too long
+                Company name is too long
               </div>
             </mat-error>
           </mat-form-field>
@@ -182,7 +192,7 @@
               "
             >
               <div *ngIf="profileForm.get('cif')?.errors?.required">
-                cif is required
+                CIF is required
               </div>
             </mat-error>
           </mat-form-field>

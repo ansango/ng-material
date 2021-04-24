@@ -14,3 +14,7 @@ form {
   width: 100%;
   max-width: 320px;
 }
+
+mat-icon.icon-invalid {
+  color: #f44336;
+}

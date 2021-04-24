@@ -15,6 +15,16 @@
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput type="text " formControlName="email" />
+            <mat-icon
+              matSuffix
+              [ngClass]="{
+                'icon-invalid':
+                  loginForm.get('email')?.errors &&
+                  loginForm.get('email')?.touched
+              }"
+              >mail_outline</mat-icon
+            >
+
             <mat-error
               *ngIf="
                 loginForm.get('email')?.errors &&
@@ -33,6 +43,15 @@
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput type="password" formControlName="password" />
+            <mat-icon
+              matSuffix
+              [ngClass]="{
+                'icon-invalid':
+                  loginForm.get('password')?.errors &&
+                  loginForm.get('password')?.touched
+              }"
+              >security</mat-icon
+            >
             <mat-error
               *ngIf="
                 loginForm.get('password')?.errors &&

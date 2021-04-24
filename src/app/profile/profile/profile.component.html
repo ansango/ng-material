@@ -14,6 +14,7 @@
         <mat-form-field>
           <mat-label>First Name</mat-label>
           <input matInput [value]="profile.firstName" disabled />
+          <mat-icon matSuffix>face_outline</mat-icon>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Last Name</mat-label>
@@ -33,10 +34,12 @@
             [value]="profile.birthday | date: 'dd/MM/yyyy'"
             disabled
           />
+          <mat-icon matSuffix>cake</mat-icon>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Phone</mat-label>
           <input matInput [value]="profile.phone" disabled />
+          <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
       </div>
       <div
@@ -48,6 +51,7 @@
         <mat-form-field>
           <mat-label>Nationality</mat-label>
           <input matInput [value]="profile.nationality" disabled />
+          <mat-icon matSuffix>flag</mat-icon>
         </mat-form-field>
         <mat-form-field>
           <mat-label>NIF</mat-label>
