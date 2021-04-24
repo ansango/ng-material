@@ -8,9 +8,10 @@ import { ACTIVITY_STATE_NAME } from '../activities/state/activities.selectors';
 import { activitiesReducer } from '../activities/state/activities.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ActivitiesEffects } from '../activities/state/activities.effects';
-import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 const routes: Routes = [
   {
     path: '',
@@ -31,9 +32,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(ACTIVITY_STATE_NAME, activitiesReducer),
     EffectsModule.forFeature([ActivitiesEffects]),
-    MatTableModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatListModule,
   ],
 })
 export class MyActivitiesModule {}

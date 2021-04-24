@@ -6,3 +6,8 @@
 .wrapper {
   padding: 10px;
 }
+
+mat-card {
+  margin-bottom: 10px;
+  max-width: 640px;
+}

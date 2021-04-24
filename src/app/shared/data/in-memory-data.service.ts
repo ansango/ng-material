@@ -63,6 +63,45 @@ export class InMemoryDataService implements InMemoryDbService {
         peopleRegistered: 1,
         adminId: 3,
       },
+      {
+        id: 4,
+        name: 'Tinto',
+        category: ActivityCategory.WINE,
+        subcategory: ActivitySubcategoryWine.WINERY,
+        description:
+          'Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+        language: ActivityLanguage.EN,
+        price: 10,
+        date: new Date(2020, 10, 28),
+        peopleRegistered: 1,
+        adminId: 3,
+      },
+      {
+        id: 5,
+        name: 'Verdejo',
+        category: ActivityCategory.WINE,
+        subcategory: ActivitySubcategoryWine.WINERY,
+        description:
+          'Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+        language: ActivityLanguage.EN,
+        price: 10,
+        date: new Date(2020, 10, 28),
+        peopleRegistered: 1,
+        adminId: 3,
+      },
+      {
+        id: 6,
+        name: 'Ribera',
+        category: ActivityCategory.WINE,
+        subcategory: ActivitySubcategoryWine.WINERY,
+        description:
+          'Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+        language: ActivityLanguage.EN,
+        price: 10,
+        date: new Date(2020, 10, 28),
+        peopleRegistered: 1,
+        adminId: 3,
+      },
     ];
     const myActivities: MyActivity[] = [
       {

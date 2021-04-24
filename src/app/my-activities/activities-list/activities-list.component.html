@@ -1,36 +1,32 @@
-<h3>My Activities</h3>
-<div *ngIf="(activities$ | async)!.length === 0">Subscribe an activity...</div>
-<div *ngIf="(activities$ | async)!.length > 0">
-  <table mat-table [dataSource]="activities" class="mat-elevation-z2">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let activities">{{ activities.name }}</td>
-    </ng-container>
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef>Category</th>
-      <td mat-cell *matCellDef="let activities">{{ activities.category }}</td>
-    </ng-container>
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef>Price</th>
-      <td mat-cell *matCellDef="let activities">{{ activities.price }}</td>
-    </ng-container>
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef>Date</th>
-      <td mat-cell *matCellDef="let activities">
-        {{ activities.date | date: "dd/MM/yyyy" }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let activities">
-        <button mat-button [routerLink]="['detail', activities.id]">
-          Show
-        </button>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+<div class="container-view">
+  <div class="wrapper">
+    <h1>My Activities</h1>
+    <div *ngIf="(activities$ | async)!.length === 0">
+      Subscribe an activity...
+    </div>
+    <div *ngIf="(activities$ | async)!.length > 0">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-card
+          fxFlex="0 1 calc(100%-10px)"
+          fxFlex.gt-md="0 1 calc(60%-10px)"
+        >
+          <mat-selection-list #shoes [multiple]="false">
+            <div *ngFor="let activity of activities" class="container-data">
+              <mat-list-option
+                [value]="activity"
+                [routerLink]="['detail', activity.id]"
+              >
+                <div mat-line>{{ activity.name }}</div>
+                <div mat-line>{{ activity.category }}</div>
+                <div mat-line>{{ activity.date | date: "dd/MM/yyyy" }}</div>
+              </mat-list-option>
+            </div>
+          </mat-selection-list>
+        </mat-card>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>
-
-<router-outlet></router-outlet>

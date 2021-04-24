@@ -29,6 +29,7 @@ export class ActivityComponent implements OnInit {
         });
     });
     this.store.select(getUserId).subscribe((userId) => (this.userId = userId));
+    document.getElementById('view-child')!.scrollIntoView();
   }
 
   onDeleteSubscribe() {

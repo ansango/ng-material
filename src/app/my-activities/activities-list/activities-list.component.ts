@@ -16,7 +16,7 @@ export class ActivitiesListComponent implements OnInit {
   userId?: number = 0;
   activities$!: Observable<Activity[]>;
   activities!: Activity[];
-  displayedColumns: string[] = ['name', 'category', 'price', 'date', 'actions'];
+  panelOpenState = false;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
