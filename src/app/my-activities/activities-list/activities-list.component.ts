@@ -6,6 +6,7 @@ import { getMyActivities } from 'src/app/activities/state/activities.selectors';
 import { getUserId } from 'src/app/auth/state/auth.selectors';
 import { Activity } from 'src/app/models/activity';
 import { AppState } from 'src/app/store/app.state';
+import { getSkeleton } from 'src/app/store/shared/shared.selectors';
 
 @Component({
   selector: 'app-activities-list',
@@ -17,9 +18,11 @@ export class ActivitiesListComponent implements OnInit {
   activities$!: Observable<Activity[]>;
   activities!: Activity[];
   panelOpenState = false;
+  isLoading$?: Observable<boolean>;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+    this.isLoading$ = this.store.select(getSkeleton);
     this.activities$ = this.store.select(getMyActivities);
     this.store.select(getUserId).subscribe((id) => (this.userId = id));
     this.store.dispatch(loadMyActivities({ idUser: this.userId }));

@@ -6,7 +6,7 @@
       fxLayout="row wrap"
       fxLayoutGap="10px"
       ngClass.gt-xs="ml-10"
-      *ngIf="(favorites$ | async)!.length === 0"
+      *ngIf="isLoading$ | async"
     >
       <mat-card
         fxFlex.sm="0 1 calc(50%-10px)"
@@ -26,7 +26,7 @@
       fxLayout="row wrap"
       fxLayoutGap="10px"
       ngClass.gt-xs="ml-10"
-      *ngIf="(favorites$ | async)!.length > 0"
+      *ngIf="!(isLoading$ | async)"
     >
       <mat-card
         fxFlex.sm="0 1 calc(50%-10px)"
@@ -48,6 +48,16 @@
           </button>
         </mat-card-actions>
       </mat-card>
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center"
+      *ngIf="!(isLoading$ | async) && (favorites$ | async)!.length === 0"
+    >
+      <div fxLayout="column">
+        <h2>Favorites not found</h2>
+        <h4>Please add some activities</h4>
+      </div>
     </div>
   </div>
 

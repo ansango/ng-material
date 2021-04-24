@@ -9,6 +9,10 @@ import { ActivitiesService } from 'src/app/services/activities.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { AppState } from 'src/app/store/app.state';
 import {
+  setLoadingSkeleton,
+  setLoadingSpinner,
+} from 'src/app/store/shared/shared.actions';
+import {
   addFavorite,
   addFavoriteSuccess,
   autoDeleteFavorites,
@@ -32,6 +36,10 @@ export class FavoritesEffects {
     return this.actions$.pipe(
       ofType(loadFavorites),
       mergeMap((action) => {
+        this.store.dispatch(setLoadingSkeleton({ status: true }));
+        setTimeout(() => {
+          this.store.dispatch(setLoadingSkeleton({ status: false }));
+        }, 2000);
         const activities = this.activitiesService.getFavorites();
         return of(loadFavoritesSuccess({ activities }));
       })
@@ -42,8 +50,13 @@ export class FavoritesEffects {
     return this.actions$.pipe(
       ofType(addFavorite),
       mergeMap((action) => {
+        this.store.dispatch(setLoadingSpinner({ status: true }));
+        setTimeout(() => {
+          this.store.dispatch(setLoadingSpinner({ status: false }));
+          this.activitiesService.addFavorites(action.activity);
+          this.router.navigate(['favorites']);
+        }, 2000);
         const activity = action.activity;
-        this.activitiesService.addFavorites(activity);
         return of(addFavoriteSuccess({ activity }));
       })
     );
@@ -53,9 +66,9 @@ export class FavoritesEffects {
     return this.actions$.pipe(
       ofType(deleteFavorite),
       switchMap((action) => {
-        const id = action.id;
-        this.activitiesService.deleteFavorite(id);
+        this.activitiesService.deleteFavorite(action.id);
         this.router.navigate(['favorites']);
+        const id = action.id;
         return of(deleteFavoriteSuccess({ id }));
       })
     );

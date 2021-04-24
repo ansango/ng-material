@@ -7,20 +7,14 @@
           fxFlex="0 1 calc(100%-10px)"
           fxFlex.gt-md="0 1 calc(60%-10px)"
         >
-          <mat-selection-list
-            *ngIf="(activities$ | async)!.length === 0"
-            [multiple]="false"
-          >
+          <mat-selection-list *ngIf="isLoading$ | async" [multiple]="false">
             <div *ngFor="let num of [1, 2, 3, 4, 5, 6]">
               <mat-list-option>
                 <div mat-line><ngx-skeleton-loader></ngx-skeleton-loader></div>
               </mat-list-option>
             </div>
           </mat-selection-list>
-          <mat-selection-list
-            [multiple]="false"
-            *ngIf="(activities$ | async)!.length > 0"
-          >
+          <mat-selection-list [multiple]="false" *ngIf="!(isLoading$ | async)">
             <div *ngFor="let activity of activities">
               <mat-list-option
                 [value]="activity"

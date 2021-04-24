@@ -39,6 +39,7 @@ export class MessageService {
     switch (status) {
       case 'err':
         this.store.dispatch(setErrorMessage({ message: this.getMessageErr() }));
+        this.autoReset('ko');
         break;
       case 'ok':
         this.store.dispatch(
@@ -69,6 +70,6 @@ export class MessageService {
       if (status === 'ko') {
         this.store.dispatch(setErrorMessage({ message: '' }));
       }
-    }, 5000);
+    }, 3000);
   }
 }
