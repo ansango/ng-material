@@ -44,9 +44,8 @@ export class AuthEffects {
       exhaustMap((action) => {
         setTimeout(() => {
           this.store.dispatch(setLoadingSpinner({ status: false }));
-        }, 5000);
-
-        this.messageService.alertDispatch('reset');
+          this.messageService.alertDispatch('reset');
+        }, 700);
         return this.authService.login(action.email, action.password).pipe(
           map((data) => {
             this.messageService.alertDispatch('ok');

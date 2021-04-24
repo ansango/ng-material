@@ -1,19 +1,17 @@
 .container-view {
-  width: 100%;
   min-height: calc(100vh - 7rem);
-  margin: 0 auto;
 }
 
 .wrapper {
-  padding: 20px;
+  padding: 10px;
 }
 
 mat-card {
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
 }
 
 form {
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
 }

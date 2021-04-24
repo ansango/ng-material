@@ -4,7 +4,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { getUserId } from 'src/app/auth/state/auth.selectors';
 import { addFavorite } from 'src/app/favorites/state/favorites.actions';
 
-import { Activity } from 'src/app/models/activity';
+import { Activity, ActivityCategory } from 'src/app/models/activity';
 import { AppState } from 'src/app/store/app.state';
 import { loadActivities, loadMyActivities } from '../state/activities.actions';
 import { getActivities } from '../state/activities.selectors';
@@ -18,6 +18,7 @@ export class ActivitiesListComponent implements OnInit {
   userId?: number = 0;
   activities$!: Observable<Activity[]>;
   activities!: Activity[];
+
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {

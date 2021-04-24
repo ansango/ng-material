@@ -7,6 +7,13 @@
   padding: 10px;
 }
 mat-card {
-  width: 100%;
-  max-width: 320px;
+  margin-bottom: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
 }
