@@ -1,3 +1,19 @@
-table {
+.container-view {
   width: 100%;
+  min-height: calc(100vh - 7rem);
+  margin: 0 auto;
+}
+.wrapper {
+  padding: 10px;
+}
+mat-card {
+  margin-bottom: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
 }

@@ -1,36 +1,65 @@
-<h3>Favorites List</h3>
-<div *ngIf="(favorites$ | async)!.length === 0">
-  Please add some activities to favorites
-</div>
-<div *ngIf="(favorites$ | async)!.length > 0">
-  <table mat-table [dataSource]="favorites" class="mat-elevation-z2">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let activities">{{ activities.name }}</td>
-    </ng-container>
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef>Category</th>
-      <td mat-cell *matCellDef="let activities">{{ activities.category }}</td>
-    </ng-container>
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef>Price</th>
-      <td mat-cell *matCellDef="let activities">{{ activities.price }}</td>
-    </ng-container>
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef>Date</th>
-      <td mat-cell *matCellDef="let activities">
-        {{ activities.date | date: "dd/MM/yyyy" }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let activities">
-        <button [routerLink]="['detail', activities.id]">Show</button>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-</div>
+<div class="container-view">
+  <div class="wrapper">
+    <div
+      fxLayout="row"
+      fxLayout.sm="column"
+      fxLayout.xs="column"
+      fxLayoutAlign="center center"
+    >
+      <h1>Favorites</h1>
+    </div>
+    <div
+      fxLayout.xs="column"
+      fxLayout="row wrap"
+      fxLayoutGap="10px"
+      ngClass.gt-xs="ml-10"
+      *ngIf="(favorites$ | async)!.length === 0"
+    >
+      <mat-card
+        fxFlex.sm="0 1 calc(50%-10px)"
+        fxFlex.md="0 1 calc(33%-10px)"
+        fxFlex.gt-md="0 1 calc(33%-10px)"
+        *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      >
+        <mat-card-content>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div
+      fxLayout.xs="column"
+      fxLayout="row wrap"
+      fxLayoutGap="10px"
+      ngClass.gt-xs="ml-10"
+      *ngIf="(favorites$ | async)!.length > 0"
+    >
+      <mat-card
+        fxFlex.sm="0 1 calc(50%-10px)"
+        fxFlex.md="0 1 calc(33%-10px)"
+        fxFlex.gt-md="0 1 calc(33%-10px)"
+        *ngFor="let activity of favorites$ | async"
+      >
+        <mat-card-header>
+          <mat-card-title>{{ activity.name }}</mat-card-title>
+          <mat-card-subtitle>{{ activity.category }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-button [routerLink]="['detail', activity.id]">
+            Show Details
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 
-<router-outlet></router-outlet>
+  <div
+    fxLayout.xs="column"
+    fxLayout="row"
+    fxLayoutAlign="center"
+    fxLayoutAlign.gt-md="end"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div>

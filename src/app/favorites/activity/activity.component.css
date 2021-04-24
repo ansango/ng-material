@@ -1,3 +1,18 @@
+.container-view {
+  width: 100%;
+  margin: 0 auto;
+}
+.wrapper {
+  padding: 10px;
+}
+
+@media (min-width: 576px) {
+  .wrapper {
+    padding: 10px 20px;
+  }
+}
+
 mat-card {
-  max-width: 400px;
+  margin-bottom: 10px;
+  width: 100%;
 }
