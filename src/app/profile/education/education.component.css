@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+.skeleton-container {
+  margin: 20px 0;
+}
+
 mat-card {
   width: 100%;
 }

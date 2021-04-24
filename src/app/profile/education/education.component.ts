@@ -17,6 +17,11 @@ export class EducationComponent implements OnInit {
   profileId?: number = 0;
   education$!: Observable<Education[]>;
   education!: Education[];
+  loading = [
+    { id: 1, name: '' },
+    { id: 2, name: '' },
+    { id: 3, name: '' },
+  ];
   displayedColumns: string[] = [
     'type',
     'level',

@@ -21,6 +21,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const routes: Routes = [
   {
@@ -54,6 +55,7 @@ const routes: Routes = [
     StoreModule.forFeature(PROFILE_STATE_NAME, profileReducer),
     EffectsModule.forFeature([ProfileEffects]),
     FlexLayoutModule,
+    NgxSkeletonLoaderModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
