@@ -1,8 +1,8 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation">
+<mat-drawer-container>
+  <mat-drawer #sidenav role="navigation">
     <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
-  </mat-sidenav>
-  <mat-sidenav-content>
+  </mat-drawer>
+  <mat-drawer-content>
     <app-spinner *ngIf="showLoading | async"></app-spinner>
     <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
     <div class="container" fxLayout="row" fxLayoutAlign="center">
@@ -18,5 +18,5 @@
       <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>
